@@ -1,0 +1,70 @@
+apply plugin: 'com.android.application'
+apply plugin: 'channel'
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.2"
+    defaultConfig {
+        applicationId "com.planapps.countdown"
+        minSdkVersion 21
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+}
+
+rebuildChannel{
+    def apkName ="app-release_10_jiagu_sign.apk"
+    //指定渠道文件
+    channelFile = file("C:/Users/mayn/Desktop/date/channel.txt")
+    //多渠道包的输出目录，默认为new File(project.buildDir,"channel")
+   //baseOutputDir = new File(project.buildDir,"/Users/mayn/Desktop/release")
+    baseReleaseApk = file("C:/Users/mayn/Desktop/release/app-release_10_jiagu_sign.apk")
+    //多渠道包的命名规则，默认为：${appName}-${versionName}-${versionCode}-${flavorName}-${buildType}
+   // apkNameFormat ='${appName}-${versionName}-${versionCode}-${flavorName}-${buildType}'
+    //指定生成的渠道包路径
+    releaseOutputDir = new File(project.buildDir, "rebuildChannel")
+    isFastMode = true
+}
+repositories {
+    flatDir {
+        dirs 'libs'
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'androidx.appcompat:appcompat:1.0.2'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation 'androidx.annotation:annotation:1.1.0'
+    //KV值包
+    implementation 'com.ark.custom:kvalue:1.0.1'
+    //banner包
+    implementation 'com.youth.banner:banner:1.4.10'
+    //友盟第三方包
+    implementation 'com.umeng.umsdk:analytics:8.0.0'
+    implementation 'com.umeng.umsdk:common:2.0.0'
+    //广告相关
+    implementation 'com.ark.ads:basics:1.2.8'
+    implementation 'com.ark.ads:core:1.2.8'
+    implementation 'com.ark.ads:gdt:1.2.8'
+    implementation 'com.ark.ads:ttad:1.2.8'
+    implementation 'com.ark.ads:longyun:1.2.8'
+    implementation 'com.ark.ads:zhaocai:1.2.8'
+    implementation 'com.ark.ads:iflytek:1.2.8'
+    testImplementation 'junit:junit:4.12'
+    implementation(name: 'CommonTool-2.0.4', ext: 'aar')
+    androidTestImplementation 'androidx.test:runner:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
+    //LitePal包
+    implementation 'org.litepal.android:java:3.0.0'
+    //存储图片地址包
+    implementation 'com.github.orhanobut:hawk:1.21'
+    //数据库实时监控包
+    debugImplementation 'com.amitshekhar.android:debug-db:1.0.4'
+    implementation 'me.jessyan:autosize:0.9.5'
+    //第三方打包渠道包
+    api 'com.leon.channel:helper:2.0.3'
+    implementation project(path: ':calendarprovider')
+   // implementation files('libs\\CommonTool-2.0.4.aar')
+}

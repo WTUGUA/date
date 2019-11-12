@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">倒计时日历</string>
+    <array name="classify">
+        <item>无</item>
+        <item>生日</item>
+        <item>旅行</item>
+        <item>还款日</item>
+        <item>其他</item>
+    </array>
+</resources>

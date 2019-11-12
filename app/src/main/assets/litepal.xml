@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<litepal>
+    <!-- 数据库名，加不加.db都行，如果没加默认会加 -->
+    <dbname value="event4" />
+
+    <!-- 数据库版本，每次修改映射文件后+1 -->
+    <version value="6" />
+
+    <!--
+        添加映射文件如下所示：
+        <list>
+            <mapping class="com.test.model.Reader" />
+            <mapping class="com.test.model.Magazine" />
+        </list>
+    -->
+    <list>
+        <mapping class="com.planapps.countdown.uitl.Event" />
+    </list>
+
+    <!--
+        定义数据库文件存储位置，默认"internal"，可选"external"
+        <storage value="external" />
+    -->
+
+</litepal>
